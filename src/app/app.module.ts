@@ -13,10 +13,10 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import {DropdownDirective} from "./shared/dropdown.directive";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MakingRecipeComponent } from './making-recipe/making-recipe.component';
-import { MakingEditComponent } from './making-recipe/making-edit/making-edit.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MakingRecipeService} from "./making-recipe/making-recipe.service";
 import {RecipeService} from "./recipes/recipe.service";
+
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {RecipeService} from "./recipes/recipe.service";
     DropdownDirective,
     RecipeItemComponent,
     MakingRecipeComponent,
-    MakingEditComponent
+
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 
 import { Ingredient } from '../shared/ingredient.model';
 import {MakingRecipeService} from "./making-recipe.service";
+import {Order} from "../shared/order.model";
+import {Recipe} from "../recipes/recipe.model";
 
 
 @Component({
@@ -12,6 +14,7 @@ import {MakingRecipeService} from "./making-recipe.service";
 })
 export class MakingRecipeComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[];
+  order: Order[];
   private igChangeSub: Subscription;
 
   constructor(private mrService: MakingRecipeService) {
@@ -25,9 +28,12 @@ export class MakingRecipeComponent implements OnInit, OnDestroy {
           this.ingredients = ingredients;
         }
       );
-  }
-  onEditItem(index: number) {
-    this.mrService.startedEditing.next(index);
+    this.order = this.mrService.getOrder();
+    console.log('order', this.order);
+    this.igChangeSub = this.mrService.orderChanged
+      .subscribe((order: Order[]) => {
+      this.order = order;
+    });
   }
 
   ngOnDestroy(): void {

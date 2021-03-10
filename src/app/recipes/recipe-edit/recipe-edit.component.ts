@@ -50,7 +50,7 @@ export class RecipeEditComponent implements OnInit {
   }
   onAddOrder() {
     (<FormArray>this.recipeForm.get('order')).push(new FormGroup({
-      'order': new FormControl(null, Validators.required),
+      'orderStep': new FormControl(null, Validators.required),
 
     })
     )
@@ -91,7 +91,7 @@ S
       if (recipe['order']) {
         for (let order of recipe.order) {
           new FormGroup({
-
+            'orderStep': new FormControl(order.orderStep, Validators.required),
           })
         }
       }

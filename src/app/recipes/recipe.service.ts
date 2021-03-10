@@ -36,6 +36,9 @@ export class RecipeService{
   addIngredientsToMR(ingredient: Ingredient[]) {
     this.MRService.addIngredients(ingredient);
   }
+  addOrderToMr(order: Order[]) {
+    this.MRService.addOrder(order);
+  }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
