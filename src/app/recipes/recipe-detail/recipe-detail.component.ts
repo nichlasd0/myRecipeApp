@@ -23,6 +23,8 @@ export class RecipeDetailComponent implements OnInit {
         {
           this.id = +params['id'];
           this.recipe = this.recipeService.getRecipe(this.id);
+          console.log('id', this.id);
+          console.log('recipe', this.recipe.name);
         }
       );
   }

@@ -10,7 +10,7 @@ export class MakingRecipeService {
 
   private ingredients: Ingredient[] = [];
   private order: Order[] = [];
-  private recipe: Recipe;
+  private recipes: Recipe;
 
   getIngredients() {
     return this.ingredients.slice();
@@ -21,6 +21,9 @@ export class MakingRecipeService {
 
   getIngredient(index: number) {
     return this.ingredients[index];
+  }
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
 
@@ -47,7 +50,9 @@ export class MakingRecipeService {
     this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
-  removeRecipe(index: number) {
-
+  deleteOrder(index: number) {
+    this.order.splice(index,1);
+    this.orderChanged.next(this.order.slice());
   }
+
 }
