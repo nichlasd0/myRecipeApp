@@ -2,15 +2,17 @@
 import {Subject} from 'rxjs';
 import {Order} from "../shared/order.model";
 import {Recipe} from "../recipes/recipe.model";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class MakingRecipeService {
   ingredientsChanged = new Subject<Ingredient[]>();
   startedEditing = new Subject<number>();
   orderChanged = new Subject<Order[]>();
-
+  private recipes: Recipe[] = [];
   private ingredients: Ingredient[] = [];
   private order: Order[] = [];
-  private recipes: Recipe;
+
 
   getIngredients() {
     return this.ingredients.slice();
@@ -22,9 +24,10 @@ export class MakingRecipeService {
   getIngredient(index: number) {
     return this.ingredients[index];
   }
-  getRecipe(index: number) {
-    return this.recipes[index];
-  }
+  // getRecipe(index: number) {
+  //   return this.recipes[index];
+  //   console.log('recipes', this.recipes);
+  // }
 
 
   addIngredient(ingredient: Ingredient) {

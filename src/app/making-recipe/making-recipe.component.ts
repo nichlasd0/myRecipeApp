@@ -5,6 +5,7 @@ import {MakingRecipeService} from "./making-recipe.service";
 import {Order} from "../shared/order.model";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Recipe} from "../recipes/recipe.model";
+import {RecipeService} from "../recipes/recipe.service"
 
 
 @Component({
@@ -20,7 +21,7 @@ export class MakingRecipeComponent implements OnInit {
   id: number;
   recipe: Recipe;
 
-  constructor(private mrService: MakingRecipeService, private route: ActivatedRoute) {
+  constructor(private mrService: MakingRecipeService, private route: ActivatedRoute, private recipeService: RecipeService) {
   }
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class MakingRecipeComponent implements OnInit {
       .subscribe((
         params: Params) => {
           this.id = +params['id'];
-          this.recipe = this.mrService.getRecipe(this.id);
+          this.recipe = this.recipeService.getRecipe(this.id);
           console.log('id', this.id);
           console.log('recipe', this.recipe.name);
         }

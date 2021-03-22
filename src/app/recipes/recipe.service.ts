@@ -8,16 +8,16 @@ import {Order} from "../shared/order.model";
 @Injectable()
 export class RecipeService{
   recipesChanged = new Subject<Recipe[]>();
-  private recipes: Recipe[] = [
-    new Recipe('A test recipe', 'this is a test',
-      'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg', [new Order ('make dough')],[new Ingredient('Meat', 1, 'kg'),
-      new Ingredient('French Fries', 20, 'g')]),
-    new Recipe('Another test recipe', 'this is a test', 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg',
-      [new Order ('make dough')], [new Ingredient('Cheese', 2, 'slice'),
-      new Ingredient('Water', 5, 'g')])
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe('A test recipe', 'this is a test',
+  //     'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg', [new Order ('make dough')],[new Ingredient('Meat', 1, 'kg'),
+  //     new Ingredient('French Fries', 20, 'g')]),
+  //   new Recipe('Another test recipe', 'this is a test', 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg',
+  //     [new Order ('make dough')], [new Ingredient('Cheese', 2, 'slice'),
+  //     new Ingredient('Water', 5, 'g')])
+  // ];
 
- // private recipes: Recipe[] = [];
+  private recipes: Recipe[] = [];
 
   constructor(private MRService: MakingRecipeService) {
   }
